@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../share/load-css.ejs") %>
+    <link rel="stylesheet" href="../../public/styles/modal.css" />
+    <title>ログイン</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <h1>ログイン</h1>
+      <% if (error) { %>
+        <div class="error-modal">
+          <p><%= error %></p>
+        </div>
+        <% } %>
+        <form action="/account/login" method="POST">
+          <label>
+            <p>e-mail</p>
+            <input type="email" name="email" id="email" required autofocus />
+          </label>
+          <label>
+            <p>password</p>
+            <input autofocus type="password" name="password" id="password" required />
+          </label>
+          <div class="module-spacer--medium"></div>
+          <div>
+            <button type="submit">ログイン</button>
+          </div>
+        </form>
+      </body>
+    </div>
+</html>

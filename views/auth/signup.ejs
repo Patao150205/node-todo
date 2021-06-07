@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../share/load-css.ejs") %>
+    <link rel="stylesheet" href="../../public/styles/modal.css" />
+    <title>新規登録</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <h1>新規登録</h1>
+      <% if (error) { %>
+        <% for (const key in error) { %>
+          <div class="error-modal">
+            <p><%= error[key] %></p>
+          </div>
+        <% } %>
+      <% } %>
+        <form action="/account/signup" method="POST">
+          <label>
+            <p>username</p>
+            <input autofocus value="<%= username %>" type="text" name="username" id="username" required  />
+          </label>
+          <label>
+            <p>e-mail</p>
+            <input value="<%= email %>" type="email" name="email" id="email" required  />
+          </label>
+          <label>
+            <p>password</p>
+            <input  type="password" name="password" id="password" required />
+          </label>
+          <label>
+            <p>password(再入力)</p>
+            <input  type="password" name="reconfirmation" id="reconfirmation" required />
+          </label>
+          <div class="module-spacer--medium"></div>
+          <div>
+            <button type="submit">新規登録</button>
+          </div>
+        </form>
+      </body>
+    </div>
+</html>

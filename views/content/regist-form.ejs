@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../share/load-css.ejs") %>
+    <title>ToDoの登録</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <%- include("../share/header.ejs") %>
+      <h1>ToDoの登録</h1>
+      <form action="/content/regist/confirm" method="POST">
+        <label>
+          <p>予定日時</p>
+          <input type="date" name="time" value="<%= data.time %>" id="time" />
+        </label>
+        <label>
+          <p>項目名</p>
+          <input autofocus type="text" name="contentName" value="<%= data.contentName %>" id="contentName" />
+        </label>
+        <div class="module-spacer--medium"></div>
+        <div>
+          <button type="submit">登録する</button>
+        </div>
+      </form>
+      <div class="module-spacer--medium"></div>
+      <a href="/">ホームに戻る</a>
+    </div>
+  </body>
+</html>

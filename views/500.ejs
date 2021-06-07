@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/styles/confirm.css" />
+    <%- include("./share/load-css.ejs") %>
+    <title>505.Internal Server Error</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <%- include("./share/header.ejs") %>
+      <h1>505.Internal Server Error</h1>
+      <p>サーバー側で何らかのエラーが発生しています😭</p>
+      <p>管理者の連絡先: <a href="https://twitter.com/Patao_program">ぱたお@プログラミング初学者Twitter</a></p>
+      <table cellpadding="10" border="1">
+        <tr>
+          <th>Url</th>
+          <th>Method</th>
+          <th>Protocol</th>
+          <th>Version</th>
+        </tr>
+        <tr>
+          <td><%= data.url %></td>
+          <td><%= data.method %></td>
+          <td><%= data.protocol %></td>
+          <td><%= data.version %></td>
+        </tr>
+      </table>
+
+      <% if (data.error) { %>
+      <table cellpadding="10" border="1">
+        <tr>
+          <th>name</th>
+          <th>message</th>
+          <th>stack</th>
+        </tr>
+        <tr>
+          <td><%= data.error.message %></td>
+          <td><%= data.error.name %></td>
+          <td><%= data.error.stack %></td>
+        </tr>
+      </table>
+      <% } %>
+    </div>
+  </body>
+</html>

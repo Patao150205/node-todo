@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('./share/load-css.ejs') %>
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <%- include("./share/header.ejs") %>
+      <h1>ToDoアプリ</h1>
+      <button onclick="location.href = '/content/regist'">ToDoの登録</button>
+      <div class="module-spacer--medium"></div>
+      <table border="1" cellpadding="20">
+        <tr bgcolor="red">
+          <th>日付</th>
+          <th>項目</th>
+          <th>編集</th>
+          <th>削除</th>
+        </tr>
+        <% for (let ele of data) { %> <% const date = ele.time.toLocaleDateString().split("/") %> <% date[1] = ("0" +
+        date[1] ).slice(-2) %> <% date[2] = ("0" + date[2]).slice(-2) %>
+        <tr>
+          <td><%= date.join("-") %></td>
+          <td><%= ele.contentName %></td>
+          <td>
+            <form>
+              <button type="submit" name="editBtn" value="<%= ele._id %>" formmethod="POST" formaction="/content/edit">
+                編集
+              </button>
+            </form>
+          </td>
+          <td>
+            <form>
+              <button
+                type="submit"
+                value="<%= ele._id %>"
+                name="deleteBtn"
+                formmethod="POST"
+                formaction="/content/delete"
+              >
+                削除
+              </button>
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+    <script src="../public/js/index.js"></script>
+  </body>
+</html>

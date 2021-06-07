@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/styles/confirm.css" />
+    <%- include("../share/load-css.ejs") %>
+    <title>送信確認</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <%- include("../share/header.ejs") %>
+      <p>本当に送信していいですか？？</p>
+      <form action="/content/regist/excute" method="POST">
+        <label>
+          <p>予定日時</p>
+          <input readonly type="date" value="<%= data.time %>" name="time" id="time" />
+        </label>
+        <label>
+          <p>項目名</p>
+          <input readonly type="text" value="<%= data.contentName %>" name="contentName" id="contentName" />
+        </label>
+        <div class="module-spacer--medium"></div>
+        <div>
+          <button type="submit">確認</button>
+          <button type="submit" formaction="/content/regist">戻る</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

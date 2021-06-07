@@ -1,0 +1,9 @@
+.error-modal {
+  background-color: rgb(255, 0, 0);
+  width: 800px;
+  height: 40px;
+}
+
+.success-modal {
+  background-color: rgb(39, 201, 74);
+}

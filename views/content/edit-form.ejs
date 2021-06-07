@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include("../share/load-css.ejs") %>
+    <title>ToDoの編集</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <%- include("../share/header.ejs") %>
+      <h1>ToDoの編集</h1>
+      <% const date = data.time.toLocaleDateString().split("/"); %> <% date[1] = ("0" + date[1]).slice(-2) %> <% date[2]
+      = ("0" + date[2]).slice(-2) %> <% const time = date.join("-") %>
+      <form action="/content/edit/excute" method="POST">
+        <label>
+          <p>予定日時</p>
+          <input type="date" value="<%= time %>" name="time" id="time" />
+        </label>
+        <label>
+          <p>項目名</p>
+          <input type="text" value="<%= data.contentName %>" name="contentName" id="contentName" />
+        </label>
+        <div class="module-spacer--medium"></div>
+        <button type="submit" name="_id" value="<%= data._id %>">変更を送信する</button>
+      </form>
+      <div class="module-spacer--medium"></div>
+      <a href="/">ホームに戻る</a>
+    </div>
+  </body>
+</html>

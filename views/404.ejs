@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/styles/confirm.css" />
+    <%- include("./share/load-css.ejs") %>
+    <title>404.Not Found</title>
+  </head>
+  <body>
+    <div class="block--center">
+      <%- include("./share/header.ejs") %>
+      <h1>404.Not Found</h1>
+      <p>お探しのページは見つかりませんでした😭</p>
+      <table cellpadding="10" border="1">
+        <tr>
+          <th>Url</th>
+          <th>Method</th>
+          <th>Protocol</th>
+          <th>Version</th>
+        </tr>
+        <tr>
+          <td><%= data.url %></td>
+          <td><%= data.method %></td>
+          <td><%= data.protocol %></td>
+          <td><%= data.version %></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
