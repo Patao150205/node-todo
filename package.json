@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon node app.js",
-    "start": "node app.js"
+    "dev": "nodemon node ./app.js",
+    "start": "node ./app.js"
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,6 @@
     "passport-local-mongoose": "^6.1.0"
   },
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "eslint": "^7.27.0",
     "mongoose": "^5.12.12",
     "mongoose-unique-validator": "^2.0.3",
