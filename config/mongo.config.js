@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose.set("useCreateIndex", true);
 
 module.exports = {
-  DATABASEURL: "mongodb://patao:112940@127.0.0.1:27017/todo",
+  DATABASEURL: "mongodb+srv://patao:UTIs9A7MrAlCeQgk@cluster0.ksr6u.mongodb.net/todo?retryWrites=true&w=majority",
   OPTIONS: {
     useUnifiedTopology: true,
     useNewUrlParser: true,
