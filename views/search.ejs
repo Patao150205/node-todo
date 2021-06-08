@@ -13,14 +13,17 @@
       <h1>ToDoアプリ</h1>
       <button onclick="location.href = '/content/regist'">ToDoの登録</button>
       <div class="module-spacer--medium"></div>
+      <% if (target) { %>
+      <h2><%= target %>の検索結果</h2>
+      <% } %>
       <h2><%= count %>件</h2>
       <form action="/search">
-        <input required name="keyword" type="text" />
+        <input required name="keyword" type="text" value="<%= queryParams.keyword %>" />
         <button type="submit">キーワード検索</button>
       </form>
       <div class="module-spacer--medium"></div>
       <form action="/search">
-        <input required name="date" type="date" />
+        <input required name="date" type="date" value="<%= queryParams.date %>" />
         <button type="submit">日付検索</button>
       </form>
       <div class="module-spacer--medium"></div>
@@ -73,7 +76,11 @@
           <% for (i = 1; i <= pagination.max; i++) { %> <% if (pagination.current === i) { %>
           <li class="u-padding-right--10px"><span><%= i %></span></li>
           <% } else { %>
-          <li class="u-padding-right--10px"><a href="/?page=<%= i %>"><%= i %></a></li>
+          <li class="u-padding-right--10px">
+            <a href="/search/?keyword=<%= queryParams.keyword %>&date=<%= queryParams.date %>&page=<%= i %>"
+              ><%= i %></a
+            >
+          </li>
           <% } } %>
         </ul>
       </nav>

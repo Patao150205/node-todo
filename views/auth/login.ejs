@@ -9,12 +9,13 @@
   </head>
   <body>
     <div class="block--center">
+      <%- include("../share/unauthHeader.ejs") %>
       <h1>ログイン</h1>
       <% if (error) { %>
         <div class="error-modal">
           <p><%= error %></p>
         </div>
-        <% } %>
+      <% } %>
         <form action="/account/login" method="POST">
           <label>
             <p>e-mail</p>

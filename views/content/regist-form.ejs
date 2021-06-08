@@ -13,11 +13,11 @@
       <form action="/content/regist/confirm" method="POST">
         <label>
           <p>予定日時</p>
-          <input type="date" name="time" value="<%= data.time %>" id="time" />
+          <input required type="date" name="time" value="<%= data.time %>" id="time" />
         </label>
         <label>
           <p>項目名</p>
-          <input autofocus type="text" name="contentName" value="<%= data.contentName %>" id="contentName" />
+          <input required autofocus type="text" name="contentName" value="<%= data.contentName %>" id="contentName" />
         </label>
         <div class="module-spacer--medium"></div>
         <div>

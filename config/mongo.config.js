@@ -7,5 +7,6 @@ module.exports = {
   OPTIONS: {
     useUnifiedTopology: true,
     useNewUrlParser: true,
+    useFindAndModify: false,
   },
 };

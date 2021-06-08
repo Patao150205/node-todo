@@ -8,6 +8,7 @@ const { initialize } = require("./config/account.js");
 
 app.disable("x-powered-by");
 app.set("view engine", "ejs");
+app.use("/public", express.static(path.resolve(__dirname, "public")));
 
 app.use(cookieParser());
 app.use(
@@ -25,12 +26,11 @@ app.use(...initialize());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use("/public", express.static(path.resolve(__dirname, "public")));
-
 app.use("/", require("./routes/index.js"));
-app.use("/api", require("./routes/api/index.js"));
+app.use("/search", require("./routes/search.js"));
 app.use("/content", require("./routes/content.js"));
 app.use("/account", require("./routes/account.js"));
+app.use("/api", require("./routes/api/index.js"));
 
 app.use((req, res, next) => {
   const data = {
@@ -63,7 +63,6 @@ app.use((err, req, res, next) => {
         : undefined,
   };
   res.status(500);
-  console.log("エラー", err);
   if (req.xhr) {
     res.json(data);
   } else {
@@ -71,4 +70,4 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(3000);
+app.listen(5000);
